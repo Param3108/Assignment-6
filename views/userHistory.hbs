@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{session.user.userName}} ( {{session.user.email}} ) Login history</title>
+    </head>
+    <body>
+        <h2>{{session.user.userName}} ( {{session.user.email}} ) Login history</h2>
+        <table border="1" class="table table-striped col-12">
+            <thead>
+                <tr class="bigger">
+                    <th>Login Date/Time</th>
+                    <th>Client Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each session.user.loginHistory}}
+                    <tr>
+                        <td>{{this.dateTime}}</td>
+                        <td>{{this.userAgent}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </body>
+</html>
